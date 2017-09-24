@@ -1,13 +1,12 @@
 // ListProcessor.cpp
+//James Mock
+//COSC 2030
+//2017-09-23
 
-// tom bailey   1540  30 sep 2011
-
-// tom bailey   1030  27 jan 2012
 // Exercise the List class with verbose Node constructor
 //   and destructor.
 
-#include "LinkedList.cpp"
-
+#include "LinkedList.h"
 
 int main()
 {
@@ -16,35 +15,39 @@ int main()
 
 	cows.insertAsFirst(1.23);
 	cows.insertAsFirst(2.34);
-	cout << "cows list  :  " << cows << endl << endl;
+	cows.insertAsLast(5.43);
+	cows.insertAsLast(3.21);
+	cout << "cows list  :  " << cows << endl;
 
 	cows.removeFirst();
-	cout << "cows list  :  " << cows << endl << endl;
+	cout << "cows list  :  " << cows << endl;
 
 	List horses(cows);
-	cout << "cows list  :  " << cows << endl;
-	cout << "horses list:  " << horses << endl << endl;
+	cout << "cows list  :  " << cows;
+	cout << "horses list:  " << horses << endl;
 
 	horses.removeFirst();
 	horses.insertAsFirst(5.67);
+	horses.insertAsLast(7.65);
 	cows.insertAsFirst(6.78);
-	cout << "cows list  :  " << cows << endl;
-	cout << "horses list:  " << horses << endl << endl;
+	cows.insertAsLast(8.76);
+	cout << "cows list  :  " << cows;
+	cout << "horses list:  " << horses << endl;
 
 	List pigs;
-	cout << "cows list  :  " << cows << endl;
-	cout << "horses list:  " << horses << endl;
-	cout << "pigs list  :  " << pigs << endl << endl;
+	cout << "cows list  :  " << cows;
+	cout << "horses list:  " << horses;
+	cout << "pigs list  :  " << pigs << endl;
 
 	pigs = cows;
-	cout << "cows list  :  " << cows << endl;
-	cout << "horses list:  " << horses << endl;
-	cout << "pigs list  :  " << pigs << endl << endl;
+	cout << "cows list  :  " << cows;
+	cout << "horses list:  " << horses;
+	cout << "pigs list  :  " << pigs << endl;
 
 	pigs = horses;
-	cout << "cows list  :  " << cows << endl;
-	cout << "horses list:  " << horses << endl;
-	cout << "pigs list  :  " << pigs << endl << endl;
+	cout << "cows list  :  " << cows;
+	cout << "horses list:  " << horses;
+	cout << "pigs list  :  " << pigs << endl;
 
 	cout << "End of code" << endl;
 

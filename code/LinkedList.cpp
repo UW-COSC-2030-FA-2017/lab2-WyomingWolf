@@ -1,6 +1,7 @@
 // LinkedList.cpp
-
-// tom bailey   0745  5 oct 2010
+//James Mock
+//COSC 2030
+//2017-09-23
 // Definition of methods for the List class.
 
 #include "LinkedList.h"
@@ -59,10 +60,53 @@ void List::insertAsFirst(double x)
 double List::removeFirst()
 {
 	double item = first_->entry_;
-	Node * tempPtr = first_;
+	Node *tempPtr = first_;
 	first_ = first_->next_;
 	delete tempPtr;
 	return item;
+}
+
+int List::size() const
+{
+	int size = 0;
+	Node *ptr = first_;
+	while (ptr != NULL)
+	{
+		size++;
+		ptr = ptr->next_;
+	}
+	return size;
+}
+
+double List::sum() const
+{
+	double sum = 0;
+	Node *ptr = first_;
+	while (ptr != NULL)
+	{
+		sum += ptr->entry_;
+		ptr = ptr->next_;
+	}
+	return sum;
+}
+
+void List::insertAsLast(double x)
+{
+	if (empty())
+	{
+		insertAsFirst(x);
+	}
+	else
+	{
+		Node *ptr = first_;
+		int length = size();
+		for (int i = 0; i < length-1; i++)
+		{
+			ptr = ptr->next_;
+		}
+		Node *temp = new Node(x);
+		ptr->next_ = temp;
+	}
 }
 
 
@@ -80,8 +124,10 @@ void List::print(ostream & outfile) const
 			outfile << ", " << ptr->entry_;
 			ptr = ptr->next_;
 		}
+
 	}
 	outfile << " ]";
+	outfile << "   size: " << size() << "   sum: " << sum() << endl;
 }
 
 
